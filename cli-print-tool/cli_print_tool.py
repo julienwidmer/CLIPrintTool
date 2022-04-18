@@ -9,6 +9,9 @@ class CLIPrintTool:
         self.__border_bottom_left = "└"
         self.__border_bottom_right = "┘"
 
+        self.__border_middle_left = "├"
+        self.__border_middle_right = "┤"
+
         self.__border_vertical = "│"
         self.__border_horizontal = "─"
 
@@ -68,18 +71,35 @@ class CLIPrintTool:
 
         print(box_bottom)
 
-    def __print_box_content(self, text: str):
+    def __print_box_content(self, text: str, centered=False, right_aligned=False):
         # Box bottom --> │ Text │
         length = self.__max_length - 2 - 2  # max length minus borders and spaces
 
         box_content = self.__border_vertical + " "  # left border
-        box_content += text.ljust(length, " ")  # create an empty string of max length with a dash
+
+        if centered:
+            box_content += text.center(length, " ")  # create an empty string of max length with blanks
+        elif right_aligned:
+            box_content += text.rjust(length, " ")  # create an empty string of max length with blanks
+        else:
+            box_content += text.ljust(length, " ")  # create an empty string of max length with blanks
+
         box_content += " " + self.__border_vertical  # left border
 
         print(box_content)
 
+    def __print_box_divider(self):
+        # Box divider --> ├───┤
+        length = self.__max_length - 2  # max length minus border middle left and right
+
+        box_divider = self.__border_middle_left  # right divider
+        box_divider += str().ljust(length, self.__border_horizontal)  # create an empty string of max length with blanks
+        box_divider += self.__border_middle_right  # left divider
+
+        print(box_divider)
+
     # Public Method
-    def textbox(self, text: str):
+    def textbox(self, text: str, centered=False, right_aligned=False):
         # Text box
         # ┌──────┐
         # │ Text │
@@ -89,6 +109,11 @@ class CLIPrintTool:
         self.__print_box_top()
 
         for line in text_lines:
-            self.__print_box_content(line)
+            if centered:
+                self.__print_box_content(line, True)
+            elif right_aligned:
+                self.__print_box_content(line, False, True)
+            else:
+                self.__print_box_content(line)
 
         self.__print_box_bottom()
