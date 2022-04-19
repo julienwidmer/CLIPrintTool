@@ -1,4 +1,4 @@
-from cli_print_tool import CLIPrintTool, TextAlignment  # 1) import the class
+from cli_print_tool import CLIPrintTool, TextAlignment  # 1) import the classes
 
 if __name__ == '__main__':
     # 2) define the maximum line length for the content
@@ -21,3 +21,10 @@ if __name__ == '__main__':
     cli_print_tool.textbox(paragraph)  # text align left
     cli_print_tool.textbox(paragraph, TextAlignment.center)  # center
     cli_print_tool.textbox(paragraph, TextAlignment.right)  # text align right
+
+    # i.e. display a list of options
+    options = ["Option One", "Option Two", "Option Three"]
+    cli_print_tool.list(options)
+
+    # i.e. create a list with a title
+    cli_print_tool.list(options, "Main Menu")

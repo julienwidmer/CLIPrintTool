@@ -123,3 +123,18 @@ class CLIPrintTool:
             self.__print_box_content(line, alignment)
 
         self.__print_box_border(Border.bottom)
+
+    def list(self, options: [str], title=""):
+        self.__print_box_border(Border.top)
+
+        # if list has a title --> display it
+        if title != "":
+            self.__print_box_content(title)
+            self.__print_box_divider()
+
+        index = 1
+        for option in options:
+            self.__print_box_content(str(index) + ". " + option)
+            index += 1
+
+        self.__print_box_border(Border.bottom)
