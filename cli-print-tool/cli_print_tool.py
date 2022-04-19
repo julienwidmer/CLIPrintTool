@@ -1,3 +1,22 @@
+from enum import Enum
+
+
+# Creating enumerations using class
+class Border(Enum):
+    # Enum could be replaced by boolean instead but was created to improve code readability
+    # INFO: used inside CLIPrintTool.__print_box_border to print either a top or bottom box border
+    top = True
+    bottom = False
+
+
+class TextAlignment(Enum):
+    # Enum required for text alignments conditions in CLIPrintTool
+    # INFO: The values attributed here do not matter, only the names
+    left = 0
+    right = 1
+    center = 2
+
+
 class CLIPrintTool:
     # Constructor
     def __init__(self, max_line_length):
@@ -51,35 +70,27 @@ class CLIPrintTool:
             # text short enough to be returned without formatting
             return [text]
 
-    def __print_box_top(self):
-        # Box top --> ┌───┐
-        length = self.__max_length - 2  # max length minus border top left and right
+    # Box border
+    # top -->    ┌───┐
+    # bottom --> └───┘
+    def __print_box_border(self, border_top: Border):
+        length = self.__max_length - 2  # max length minus border left and right characters (1 character each = 2)
 
-        box_top = self.__border_top_left
-        box_top += str().ljust(length, self.__border_horizontal)  # create an empty string of max length with a dash
-        box_top += self.__border_top_right
+        border = self.__border_top_left if border_top.value else self.__border_bottom_left  # add left border
+        border += str().ljust(length, self.__border_horizontal)  # create empty string of given length filled with dash
+        border += self.__border_top_right if border_top.value else self.__border_bottom_right  # add right border
 
-        print(box_top)
+        print(border)
 
-    def __print_box_bottom(self):
-        # Box bottom --> └───┘
-        length = self.__max_length - 2  # max length minus border top left and right
-
-        box_bottom = self.__border_bottom_left
-        box_bottom += str().ljust(length, self.__border_horizontal)  # create an empty string of max length with a dash
-        box_bottom += self.__border_bottom_right
-
-        print(box_bottom)
-
-    def __print_box_content(self, text: str, centered=False, right_aligned=False):
-        # Box bottom --> │ Text │
+    # Box content --> │ Text │
+    def __print_box_content(self, text: str, alignment=TextAlignment.left):
         length = self.__max_length - 2 - 2  # max length minus borders and spaces
 
         box_content = self.__border_vertical + " "  # left border
 
-        if centered:
+        if alignment.value == TextAlignment.center.value:
             box_content += text.center(length, " ")  # create an empty string of max length with blanks
-        elif right_aligned:
+        elif alignment.value == TextAlignment.right.value:
             box_content += text.rjust(length, " ")  # create an empty string of max length with blanks
         else:
             box_content += text.ljust(length, " ")  # create an empty string of max length with blanks
@@ -88,8 +99,8 @@ class CLIPrintTool:
 
         print(box_content)
 
+    # Box divider --> ├───┤
     def __print_box_divider(self):
-        # Box divider --> ├───┤
         length = self.__max_length - 2  # max length minus border middle left and right
 
         box_divider = self.__border_middle_left  # right divider
@@ -99,21 +110,16 @@ class CLIPrintTool:
         print(box_divider)
 
     # Public Method
-    def textbox(self, text: str, centered=False, right_aligned=False):
+    def textbox(self, text: str, alignment=TextAlignment.left):
         # Text box
         # ┌──────┐
         # │ Text │
         # └──────┘
         text_lines = self.__format_text_length(text, True)
 
-        self.__print_box_top()
+        self.__print_box_border(Border.top)
 
         for line in text_lines:
-            if centered:
-                self.__print_box_content(line, True)
-            elif right_aligned:
-                self.__print_box_content(line, False, True)
-            else:
-                self.__print_box_content(line)
+            self.__print_box_content(line, alignment)
 
-        self.__print_box_bottom()
+        self.__print_box_border(Border.bottom)
