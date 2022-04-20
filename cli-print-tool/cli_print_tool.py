@@ -19,7 +19,7 @@ class TextAlignment(Enum):
 
 class CLIPrintTool:
     # Constructor
-    def __init__(self, max_line_length):
+    def __init__(self, max_line_length=100):
         self.__max_length = max_line_length  # print statements longer than this value will be wrapped automatically
 
         self.__border_top_left = "┌"
@@ -70,9 +70,10 @@ class CLIPrintTool:
             # text short enough to be returned without formatting
             return [text]
 
-    # Box border
-    # top -->    ┌───┐
-    # bottom --> └───┘
+    # Box border top
+    # ┌───┐
+    # Box border bottom
+    # └───┘
     def __print_box_border(self, border_top: Border):
         length = self.__max_length - 2  # max length minus border left and right characters (1 character each = 2)
 
@@ -82,7 +83,8 @@ class CLIPrintTool:
 
         print(border)
 
-    # Box content --> │ Text │
+    # Box content
+    # │ Text │
     def __print_box_content(self, text: str, alignment=TextAlignment.left):
         length = self.__max_length - 2 - 2  # max length minus borders and spaces
 
@@ -99,7 +101,8 @@ class CLIPrintTool:
 
         print(box_content)
 
-    # Box divider --> ├───┤
+    # Box divider
+    # ├───┤
     def __print_box_divider(self):
         length = self.__max_length - 2  # max length minus border middle left and right
 
@@ -110,17 +113,36 @@ class CLIPrintTool:
         print(box_divider)
 
     # Public Method
+    # Text box
+    # ┌──────┐
+    # │ Text │
+    # └──────┘
     def textbox(self, text: str, alignment=TextAlignment.left):
-        # Text box
-        # ┌──────┐
-        # │ Text │
-        # └──────┘
         text_lines = self.__format_text_length(text, True)
 
         self.__print_box_border(Border.top)
 
         for line in text_lines:
             self.__print_box_content(line, alignment)
+
+        self.__print_box_border(Border.bottom)
+
+    # Heading
+    # ┌──────────┐
+    # │ Title    │
+    # ├──────────┤
+    # │ Subtitle │
+    # └──────────┘
+    def heading(self, title: str, subtitle: str, alignment=TextAlignment.left):
+        self.__print_box_border(Border.top)
+
+        for title_line in self.__format_text_length(title, True):
+            self.__print_box_content(title_line, alignment)
+
+        self.__print_box_divider()
+
+        for subtitle_line in self.__format_text_length(subtitle, True):
+            self.__print_box_content(subtitle_line, alignment)
 
         self.__print_box_border(Border.bottom)
 
