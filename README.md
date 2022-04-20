@@ -63,13 +63,16 @@ Print text inside a box and aligned to the left.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.")
 ```
+![Screenshot of the console output from the example above.](./examples/textbox-example-1.png)
 #### Example 2
 Print text inside a box and aligned to the right.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.right)
 ```
+![Screenshot of the console output from the example above.](./examples/textbox-example-2.png)
 #### Example 3
 Print centered text inside a box.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.center)
 ```
+![Screenshot of the console output from the example above.](./examples/textbox-example-3.png)
