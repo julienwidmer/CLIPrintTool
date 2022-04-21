@@ -32,11 +32,12 @@ CLIPrintTool().textbox("Hello World!")
 ## List of public methods
 1. [Textbox](#textbox)
 2. [Heading](#heading)
+3. [List](#list)
 
 ---
 
 ## Textbox
-Takes two parameters and print text inside a box.
+Takes two parameters and prints text inside a box.
 
 ### Parameters
 <table>
@@ -66,19 +67,19 @@ Takes two parameters and print text inside a box.
 
 ### Examples
 #### Example 1
-Print text inside a box and aligned to the left.
+Prints text inside a box and left-aligned.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.")
 ```
 ![Screenshot of the console output from the example above.](./examples/textbox-example-1.png)
 #### Example 2
-Print centered text inside a box.
+Prints text inside a box and centered.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./examples/textbox-example-2.png)
 #### Example 3
-Print text inside a box and aligned to the right.
+Prints text inside a box and right-aligned.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.right)
 ```
@@ -87,7 +88,7 @@ CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignm
 ---
 
 ## Heading
-Takes three parameters and print two texts vertically separated by a line (divider).
+Takes three parameters and prints two texts vertically separated by a line (divider).
 
 ### Parameters
 <table>
@@ -123,20 +124,95 @@ Takes three parameters and print two texts vertically separated by a line (divid
 
 ### Examples
 #### Example 1
-Print two texts vertically separated by a line (divider) and aligned to the left.
+Prints two texts vertically separated by a line (divider) and left-aligned.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle")
 ```
 ![Screenshot of the console output from the example above.](./examples/heading-example-1.png)
 #### Example 2
-Print two texts vertically separated by a line (divider) and centered.
+Prints two texts vertically separated by a line (divider) and centered.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./examples/heading-example-2.png)
 #### Example 3
-Print two texts vertically separated by a line (divider) and aligned to the right.
+Prints two texts vertically separated by a line (divider) and right-aligned.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.right)
 ```
 ![Screenshot of the console output from the example above.](./examples/heading-example-3.png)
+
+---
+
+## List
+Takes three parameters and prints a list of elements vertically with a title (optional).
+
+### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Default Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>elements</td>
+            <td>List of String</td>
+            <td>Yes</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>String</td>
+            <td>No</td>
+            <td>""</td>
+        </tr>
+        <tr>
+            <td>alignment</td>
+            <td>TextAlignment</td>
+            <td>No</td>
+            <td>TextAlignment.left</td>
+        </tr>
+    </tbody>
+</table>
+
+### Examples
+#### Example 1
+Prints a list of elements vertically without title and left-aligned.
+```python
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"])
+```
+![Screenshot of the console output from the example above.](./examples/list-example-1.png)
+#### Example 2
+Prints a list of elements vertically without title and centered.
+```python
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.center)
+```
+![Screenshot of the console output from the example above.](./examples/list-example-2.png)
+#### Example 3
+Prints a list of elements vertically without title and right-aligned.
+```python
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.right)
+```
+![Screenshot of the console output from the example above.](./examples/list-example-3.png)
+#### Example 4
+Prints a list of elements vertically with title and left-aligned.
+```python
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU")
+```
+![Screenshot of the console output from the example above.](./examples/list-example-4.png)
+#### Example 5
+Prints a list of elements vertically with title and centered.
+```python
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center)
+```
+![Screenshot of the console output from the example above.](./examples/list-example-4.png)
+#### Example 6
+Prints a list of elements vertically with title and right-aligned.
+```python
+CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.right)
+```
+![Screenshot of the console output from the example above.](./examples/list-example-4.png)
