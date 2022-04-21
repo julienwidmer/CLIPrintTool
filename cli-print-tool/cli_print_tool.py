@@ -1,3 +1,8 @@
+# CLIPrintTool
+#
+# Coded by Julien Widmer and made available on GitHub.
+# https://github.com/julienwidmer/CLIPrintTool
+
 from enum import Enum
 
 
@@ -70,10 +75,9 @@ class CLIPrintTool:
             # text short enough to be returned without formatting
             return [text]
 
-    # Box border top
-    # ┌───┐
-    # Box border bottom
-    # └───┘
+    # Box border
+    # top ┌───┐
+    # bottom └───┘
     def __print_box_border(self, border_top: Border):
         length = self.__max_length - 2  # max length minus border left and right characters (1 character each = 2)
 
@@ -168,5 +172,3 @@ class CLIPrintTool:
             index += 1
 
         self.__print_box_border(Border.bottom)
-
-

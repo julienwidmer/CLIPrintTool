@@ -4,7 +4,10 @@ Improve the readability and appearance of your print statements.
 ---
 
 ## How to get started
-1. Import the `CLIPrintTool` class from `cli_print_tool.py`
+If you would rather take a look at the code instead of the documentation, open directly the `example.py` file.
+
+### Step 1 - Import the class
+Import the `CLIPrintTool` class from `cli_print_tool.py`
 ```python
 from cli_print_tool import CLIPrintTool
 ```
@@ -13,7 +16,8 @@ from cli_print_tool import CLIPrintTool
 from cli_print_tool import CLIPrintTool, TextAlignment
 ```
 
-2. Create a `CLIPrintTool` object.
+### Step 2 - Create a class object
+Create a `CLIPrintTool` object.
 ```python
 CLIPrintTool()
 ```
@@ -22,7 +26,8 @@ CLIPrintTool()
 CLIPrintTool(120)  # custom max length of 120 characters
 ```
 
-3. Use the [public methods](#list-of-public-methods) from `CLIPrintTool` to print your formatted text content.
+### Step 3 - Use the public object methods
+Use the [public methods](#list-of-public-methods) from `CLIPrintTool` to print your formatted text content.
 ```python
 CLIPrintTool().textbox("Hello World!")
 ```
@@ -72,12 +77,14 @@ Prints text inside a box and left-aligned.
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.")
 ```
 ![Screenshot of the console output from the example above.](./img/textbox-example-1.png)
+
 #### Example 2
 Prints text inside a box and centered.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/textbox-example-2.png)
+
 #### Example 3
 Prints text inside a box and right-aligned.
 ```python
@@ -129,12 +136,14 @@ Prints two texts vertically separated by a line (divider) and left-aligned.
 CLIPrintTool().heading("This is a Title", "This is a Subtitle")
 ```
 ![Screenshot of the console output from the example above.](./img/heading-example-1.png)
+
 #### Example 2
 Prints two texts vertically separated by a line (divider) and centered.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/heading-example-2.png)
+
 #### Example 3
 Prints two texts vertically separated by a line (divider) and right-aligned.
 ```python
@@ -186,30 +195,35 @@ Prints a list of elements vertically without title and left-aligned.
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"])
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-1.png)
+
 #### Example 2
 Prints a list of elements vertically without title and centered.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-2.png)
+
 #### Example 3
 Prints a list of elements vertically without title and right-aligned.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.right)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-3.png)
+
 #### Example 4
 Prints a list of elements vertically with title and left-aligned.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU")
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-4.png)
+
 #### Example 5
 Prints a list of elements vertically with title and centered.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-5.png)
+
 #### Example 6
 Prints a list of elements vertically with title and right-aligned.
 ```python
