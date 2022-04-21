@@ -209,10 +209,10 @@ Prints a list of elements vertically with title and centered.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center)
 ```
-![Screenshot of the console output from the example above.](./examples/list-example-4.png)
+![Screenshot of the console output from the example above.](./examples/list-example-5.png)
 #### Example 6
 Prints a list of elements vertically with title and right-aligned.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.right)
 ```
-![Screenshot of the console output from the example above.](./examples/list-example-4.png)
+![Screenshot of the console output from the example above.](./examples/list-example-6.png)
