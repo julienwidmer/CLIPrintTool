@@ -146,17 +146,27 @@ class CLIPrintTool:
 
         self.__print_box_border(Border.bottom)
 
-    def list(self, options: [str], title=""):
+    # List
+    # ┌───────────────────────┐
+    # │ List Title (Optional) │
+    # ├───────────────────────┤
+    # │ 1. Element            │
+    # │ 2. Element            │
+    # └───────────────────────┘
+    def list(self, elements: [str], title="", alignment=TextAlignment.left):
         self.__print_box_border(Border.top)
 
-        # if list has a title --> display it
         if title != "":
-            self.__print_box_content(title)
+            # print list title
+            self.__print_box_content(title, alignment)
             self.__print_box_divider()
 
         index = 1
-        for option in options:
-            self.__print_box_content(str(index) + ". " + option)
+        for element in elements:
+            # print list element
+            self.__print_box_content(str(index) + ". " + element, alignment)
             index += 1
 
         self.__print_box_border(Border.bottom)
+
+
