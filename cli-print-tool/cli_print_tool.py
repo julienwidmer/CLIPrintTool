@@ -184,13 +184,22 @@ class CLIPrintTool:
 
         if title != "":
             # print list title
-            self.__print_box_content(title, alignment)
+            title_lines = self.__format_text_length(title, True)
+
+            for line in title_lines:
+                self.__print_box_content(line, alignment)
+
             self.__print_box_divider()
 
         index = 1
         for element in elements:
             # print list element
-            self.__print_box_content(str(index) + ". " + element, alignment)
+            element = str(index) + ". " + element
+            element_lines = self.__format_text_length(element, True)
+
+            for line in element_lines:
+                self.__print_box_content(line, alignment)
+
             index += 1
 
         self.__print_box_border(Border.bottom)
