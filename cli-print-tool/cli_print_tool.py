@@ -128,6 +128,17 @@ class CLIPrintTool:
         print(box_divider)
 
     # Public Method
+    def text(self, text: str, alignment=TextAlignment.left):
+        text_lines = self.__format_text_length(text)
+
+        for line in text_lines:
+            if alignment.value == TextAlignment.center.value:
+                print(line.center(self.__max_length, " "))  # centered
+            elif alignment.value == TextAlignment.right.value:
+                print(line.rjust(self.__max_length, " "))  # right-aligned
+            else:
+                print(line.ljust(self.__max_length, " "))  # left-aligned (default)
+
     # Text box
     # ┌──────┐
     # │ Text │
