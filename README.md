@@ -35,9 +35,76 @@ CLIPrintTool().textbox("Hello World!")
 ---
 
 ## List of public methods
-1. [Textbox](#textbox)
-2. [Heading](#heading)
-3. [List](#list)
+1. [Text](#text)
+2. [Textbox](#textbox)
+3. [Heading](#heading)
+4. [List](#list)
+
+---
+
+## Text
+Takes two parameters and prints long text wrapped to respect the maximum line length.
+
+### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Default Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>text</td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>alignment</td>
+            <td>TextAlignment</td>
+            <td>No</td>
+            <td>TextAlignment.left</td>
+        </tr>
+    </tbody>
+</table>
+
+### Examples
+#### Example 1
+Prints long text wrapped to respect the maximum line length and left-aligned.
+```python
+long_text = "This is a very very very very very long sentence. And here is another one, but don't worry about that \
+CLIPrintTool will automatically wrap the text to respect the maximum line length (by default 100 characters)."
+
+CLIPrintTool().text(long_text)
+```
+![Screenshot of the console output from the example above.](./img/text-example-1.png)
+
+#### Example 2
+Prints long text wrapped to respect the maximum line length and centered.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
+```python
+long_text = "This is a very very very very very long sentence. And here is another one, but don't worry about that \
+CLIPrintTool will automatically wrap the text to respect the maximum line length (by default 100 characters)."
+
+CLIPrintTool().text(long_text, TextAlignment.center)
+```
+![Screenshot of the console output from the example above.](./img/text-example-2.png)
+
+#### Example 3
+Prints long text wrapped to respect the maximum line length and right-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
+```python
+long_text = "This is a very very very very very long sentence. And here is another one, but don't worry about that \
+CLIPrintTool will automatically wrap the text to respect the maximum line length (by default 100 characters)."
+
+CLIPrintTool().text(long_text, TextAlignment.right)
+```
+![Screenshot of the console output from the example above.](./img/text-example-3.png)
 
 ---
 
@@ -80,6 +147,8 @@ CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.")
 
 #### Example 2
 Prints text inside a box and centered.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.center)
 ```
@@ -87,6 +156,8 @@ CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignm
 
 #### Example 3
 Prints text inside a box and right-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignment.right)
 ```
@@ -139,6 +210,8 @@ CLIPrintTool().heading("This is a Title", "This is a Subtitle")
 
 #### Example 2
 Prints two texts vertically separated by a line (divider) and centered.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.center)
 ```
@@ -146,6 +219,8 @@ CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.ce
 
 #### Example 3
 Prints two texts vertically separated by a line (divider) and right-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.right)
 ```
@@ -198,6 +273,8 @@ CLIPrintTool().list(["System Information", "Crash Reports", "Exit"])
 
 #### Example 2
 Prints a list of elements vertically without title and centered.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.center)
 ```
@@ -205,6 +282,8 @@ CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAli
 
 #### Example 3
 Prints a list of elements vertically without title and right-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.right)
 ```
@@ -219,6 +298,8 @@ CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU"
 
 #### Example 5
 Prints a list of elements vertically with title and centered.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center)
 ```
@@ -226,6 +307,8 @@ CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU"
 
 #### Example 6
 Prints a list of elements vertically with title and right-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.right)
 ```
