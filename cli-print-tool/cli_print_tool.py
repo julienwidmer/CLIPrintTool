@@ -46,8 +46,13 @@ class CLIPrintTool:
         if with_borders:
             maximum_length = self.__max_length - 4
 
-        if len(text) > maximum_length:
-            # text too long to be displayed on a single line --> split text into a list of words
+        # replace \n with custom string to preserve line return while using text.split() to wrap the text
+        custom_line_return = " CLIPrintTool_line_return "
+        text = text.replace("\n", custom_line_return)
+
+        # wrap the text if needed
+        if len(text) > maximum_length or custom_line_return in text:
+            # text too long to be displayed on a single line or contains line return --> split text into a list of words
             words = text.split()  # i.e. "Hello World!" --> ["Hello", "World!"]
 
             # create text lines respecting the maximum line length
@@ -55,22 +60,28 @@ class CLIPrintTool:
             text_line = ""
             word_index = 0
             for word in words:
-                if word_index == 0:
+                if text_line == "":
+                    # first word of the text or new word after a line return
                     edited_text_line = word  # add word
                 else:
                     edited_text_line = text_line + " " + word  # add blank space and word
-                word_index += 1
 
-                if len(edited_text_line) > maximum_length:
+                if word == custom_line_return.strip():
+                    # line return
+                    result_text_lines.append(text_line)  # save line
+                    edited_text_line = ""  # create new empty line
+                elif len(edited_text_line) > maximum_length:
                     # maximum length reached
                     result_text_lines.append(text_line)  # save line without new word
                     edited_text_line = word  # create new line
 
-                if word_index == len(words) - 1:
+                word_index += 1  # increment index for next loop
+                if word_index == len(words):
+                    # current word is the last one in the list
                     result_text_lines.append(edited_text_line)  # save last line
-
-                text_line = edited_text_line  # update line
-            return result_text_lines  # return array of formatted text lines
+                    return result_text_lines  # return array of formatted text lines
+                else:
+                    text_line = edited_text_line  # update line
         else:
             # text short enough to be returned without formatting
             return [text]
