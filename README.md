@@ -231,6 +231,8 @@ CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.ri
 ## List
 Takes three parameters and prints a list of elements vertically with a title (optional).
 
+**Note:** Blank lines can be added between elements by using the `"BLANK_LINE"` keyword. For more details, take a look at [example 4.1](#example-41).
+
 ### Parameters
 <table>
     <thead>
@@ -295,6 +297,16 @@ Prints a list of elements vertically with title and left-aligned.
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU")
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-4.png)
+
+#### Example 4.1
+Prints a list of elements vertically with title and left-aligned.
+
+**Note:** The `"BLANK_LINE"` keyword was added inside our list of menu options to display a blank line.
+```python
+menu_options = ["System Information", "Crash Reports", "BLANK_LINE", "Exit"]
+CLIPrintTool().list(menu_options, "MAIN MENU")
+```
+![Screenshot of the console output from the example above.](./img/list-example-4-1.png)
 
 #### Example 5
 Prints a list of elements vertically with title and centered.
