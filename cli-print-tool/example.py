@@ -17,6 +17,7 @@ elements = [
     "Display texts inside boxes",
     "Display headings (texts with a title and subtitle)",
     "Display elements as a numbered list with or without title",
+    "BLANK_LINE",
     "Change text alignment (supported by any of these features)"
 ]
 

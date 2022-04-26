@@ -193,13 +193,17 @@ class CLIPrintTool:
 
         index = 1
         for element in elements:
-            # print list element
-            element = str(index) + ". " + element
-            element_lines = self.__format_text_length(element, True)
+            if element == "BLANK_LINE":
+                # print empty line
+                self.__print_box_content("", alignment)
+            else:
+                # print list element
+                element = str(index) + ". " + element
+                element_lines = self.__format_text_length(element, True)
 
-            for line in element_lines:
-                self.__print_box_content(line, alignment)
+                for line in element_lines:
+                    self.__print_box_content(line, alignment)
 
-            index += 1
+                index += 1
 
         self.__print_box_border(Border.bottom)
