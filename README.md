@@ -222,7 +222,7 @@ Prints two texts vertically separated by a line (divider) and centered.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.center)
+CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.center, TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/heading-example-2.png)
 
@@ -231,7 +231,7 @@ Prints two texts vertically separated by a line (divider) and right-aligned.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.right)
+CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.right, TextAlignment.right)
 ```
 ![Screenshot of the console output from the example above.](./img/heading-example-3.png)
 
@@ -240,7 +240,7 @@ Prints two texts separated by a line (divider), with title vertically centred, a
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().heading("This is a Title", "This is a Subtitle", title_alignment=TextAlignment.center, subtitle_alignment=TextAlignment.left)
+CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.center, TextAlignment.left)
 ```
 ![Screenshot of the console output from the example above.](./img/heading-example-4.png)
 
@@ -304,7 +304,7 @@ Prints a list of elements vertically without title and centered.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.center)
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], elements_alignment=TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-2.png)
 
@@ -313,7 +313,7 @@ Prints a list of elements vertically without title and right-aligned.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "", TextAlignment.right)
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], elements_alignment=TextAlignment.right)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-3.png)
 
@@ -339,7 +339,7 @@ Prints a list of elements vertically with title and centered.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center)
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center, TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-5.png)
 
@@ -348,7 +348,7 @@ Prints a list of elements vertically with title and right-aligned.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.right)
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.right, TextAlignment.right)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-6.png)
 
@@ -357,6 +357,6 @@ Prints a list of elements left-aligned, with title center-aligned.
 
 **Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
 ```python
-CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", title_alignment=TextAlignment.center, elements_alignment=TextAlignment.left)
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.center)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-7.png)
