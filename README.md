@@ -166,7 +166,10 @@ CLIPrintTool().textbox("The quick, brown fox jumps over a lazy dog.", TextAlignm
 ---
 
 ## Heading
-Takes three parameters and prints two texts vertically separated by a line (divider).
+Takes four parameters and prints two texts vertically separated by a line (divider).
+
+Alignment of title and subtitle could be optionally altered using the `TextAlignment` enum.
+
 
 ### Parameters
 <table>
@@ -192,7 +195,13 @@ Takes three parameters and prints two texts vertically separated by a line (divi
             <td>None</td>
         </tr>
         <tr>
-            <td>alignment</td>
+            <td>title_alignment</td>
+            <td>TextAlignment</td>
+            <td>No</td>
+            <td>TextAlignment.left</td>
+        </tr>
+        <tr>
+            <td>subtitle_alignment</td>
             <td>TextAlignment</td>
             <td>No</td>
             <td>TextAlignment.left</td>
@@ -226,10 +235,21 @@ CLIPrintTool().heading("This is a Title", "This is a Subtitle", TextAlignment.ri
 ```
 ![Screenshot of the console output from the example above.](./img/heading-example-3.png)
 
+#### Example 4
+Prints two texts separated by a line (divider), with title vertically centred, and subtitle left-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
+```python
+CLIPrintTool().heading("This is a Title", "This is a Subtitle", title_alignment=TextAlignment.center, subtitle_alignment=TextAlignment.left)
+```
+![Screenshot of the console output from the example above.](./img/heading-example-4.png)
+
 ---
 
 ## List
-Takes three parameters and prints a list of elements vertically with a title (optional).
+Takes four parameters and prints a list of elements vertically with a title (optional).
+
+Alignment of elements and title could be optionally altered using the `TextAlignment` enum.
 
 **Note:** Blank lines can be added between elements by using the `"BLANK_LINE"` keyword. For more details, take a look at [example 4.1](#example-41).
 
@@ -257,7 +277,13 @@ Takes three parameters and prints a list of elements vertically with a title (op
             <td>""</td>
         </tr>
         <tr>
-            <td>alignment</td>
+            <td>title_alignment</td>
+            <td>TextAlignment</td>
+            <td>No</td>
+            <td>TextAlignment.left</td>
+        </tr>
+        <tr>
+            <td>elements_alignment</td>
             <td>TextAlignment</td>
             <td>No</td>
             <td>TextAlignment.left</td>
@@ -325,3 +351,12 @@ Prints a list of elements vertically with title and right-aligned.
 CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", TextAlignment.right)
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-6.png)
+
+#### Example 7
+Prints a list of elements left-aligned, with title center-aligned.
+
+**Note:** The `TextAlignment` class needs to be imported from `cli_print_tool.py` to change the text alignment.
+```python
+CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU", title_alignment=TextAlignment.center, elements_alignment=TextAlignment.left)
+```
+![Screenshot of the console output from the example above.](./img/list-example-7.png)
