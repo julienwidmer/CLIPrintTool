@@ -159,16 +159,20 @@ class CLIPrintTool:
     # ├──────────┤
     # │ Subtitle │
     # └──────────┘
-    def heading(self, title: str, subtitle: str, alignment=TextAlignment.left):
+    def heading(self, title: str,
+                subtitle: str,
+                title_alignment=TextAlignment.left,
+                subtitle_alignment=TextAlignment.left):
+
         self.__print_box_border(Border.top)
 
         for title_line in self.__format_text_length(title, True):
-            self.__print_box_content(title_line, alignment)
+            self.__print_box_content(title_line, title_alignment)
 
         self.__print_box_divider()
 
         for subtitle_line in self.__format_text_length(subtitle, True):
-            self.__print_box_content(subtitle_line, alignment)
+            self.__print_box_content(subtitle_line, subtitle_alignment)
 
         self.__print_box_border(Border.bottom)
 
@@ -179,7 +183,11 @@ class CLIPrintTool:
     # │ 1. Element            │
     # │ 2. Element            │
     # └───────────────────────┘
-    def list(self, elements: [str], title="", alignment=TextAlignment.left):
+    def list(self, elements: [str],
+             title="",
+             title_alignment=TextAlignment.left,
+             elements_alignment=TextAlignment.left):
+
         self.__print_box_border(Border.top)
 
         if title != "":
@@ -187,7 +195,7 @@ class CLIPrintTool:
             title_lines = self.__format_text_length(title, True)
 
             for line in title_lines:
-                self.__print_box_content(line, alignment)
+                self.__print_box_content(line, title_alignment)
 
             self.__print_box_divider()
 
@@ -195,14 +203,14 @@ class CLIPrintTool:
         for element in elements:
             if element == "BLANK_LINE":
                 # print empty line
-                self.__print_box_content("", alignment)
+                self.__print_box_content("", elements_alignment)
             else:
                 # print list element
                 element = str(index) + ". " + element
                 element_lines = self.__format_text_length(element, True)
 
                 for line in element_lines:
-                    self.__print_box_content(line, alignment)
+                    self.__print_box_content(line, elements_alignment)
 
                 index += 1
 
