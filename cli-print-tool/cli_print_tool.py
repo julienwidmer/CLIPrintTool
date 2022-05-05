@@ -190,8 +190,8 @@ class CLIPrintTool:
 
         self.__print_box_border(Border.top)
 
-        if title != "":
-            # print list title
+        if title:
+            # print list title, if not empty
             title_lines = self.__format_text_length(title, True)
 
             for line in title_lines:
