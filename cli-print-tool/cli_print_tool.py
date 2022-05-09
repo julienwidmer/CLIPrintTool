@@ -24,6 +24,7 @@ class TextAlignment(Enum):
 
 class CLIPrintTool:
 
+    # Constant used in list method to display blank lines between elements
     NEW_LINE = "NEW_LINE"
 
     # Constructor
