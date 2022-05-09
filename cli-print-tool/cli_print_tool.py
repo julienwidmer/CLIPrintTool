@@ -23,6 +23,9 @@ class TextAlignment(Enum):
 
 
 class CLIPrintTool:
+
+    NEW_LINE = "NEW_LINE"
+
     # Constructor
     def __init__(self, max_line_length=100):
         self.__max_length = max_line_length  # print statements longer than this value will be wrapped automatically
@@ -201,7 +204,7 @@ class CLIPrintTool:
 
         index = 1
         for element in elements:
-            if element == "BLANK_LINE":
+            if element == self.NEW_LINE:
                 # print empty line
                 self.__print_box_content("", elements_alignment)
             else:

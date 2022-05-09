@@ -251,7 +251,7 @@ Takes four parameters and prints a list of elements vertically with a title (opt
 
 Alignment of elements and title could be optionally altered using the `TextAlignment` enum.
 
-**Note:** Blank lines can be added between elements by using the `"BLANK_LINE"` keyword. For more details, take a look at [example 4.1](#example-41).
+**Note:** Blank lines can be added between elements by using the `CLIPrintTool.NEW_LINE` constant. To see how it's used, refer to [example 4.1](#example-41).
 
 ### Parameters
 <table>
@@ -327,9 +327,9 @@ CLIPrintTool().list(["System Information", "Crash Reports", "Exit"], "MAIN MENU"
 #### Example 4.1
 Prints a list of elements vertically with title and left-aligned.
 
-**Note:** The `"BLANK_LINE"` keyword was added inside our list of menu options to display a blank line.
+**Note:** The `CLIPrintTool.NEW_LINE` constant was added inside our list of menu options to display a blank line.
 ```python
-menu_options = ["System Information", "Crash Reports", "BLANK_LINE", "Exit"]
+menu_options = ["System Information", "Crash Reports", CLIPrintTool.NEW_LINE, "Exit"]
 CLIPrintTool().list(menu_options, "MAIN MENU")
 ```
 ![Screenshot of the console output from the example above.](./img/list-example-4-1.png)
